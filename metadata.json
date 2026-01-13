@@ -1,0 +1,5 @@
+{
+  "name": "Battery Assembly Production Portal",
+  "description": "A high-performance interactive dashboard for real-time tracking of production KPIs, quality metrics, and line status for battery assembly operations.",
+  "requestFramePermissions": []
+}
