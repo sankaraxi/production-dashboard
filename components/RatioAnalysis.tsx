@@ -2,7 +2,8 @@
 import React from 'react';
 import { Package, Truck, ArrowUpRight } from 'lucide-react';
 
-export const RatioAnalysis: React.FC<{ production: any }> = ({ production }) => {
+// Converted RatioAnalysis to a standard JavaScript function component and removed type annotations
+export const RatioAnalysis = ({ production }) => {
   const invRatio = ((production.inventory / production.actual) * 100).toFixed(1);
   const supRatio = ((production.supplied / production.actual) * 100).toFixed(1);
 
