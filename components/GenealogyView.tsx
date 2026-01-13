@@ -91,9 +91,9 @@ export const GenealogyView = () => {
           </div>
         </div>
 
-        {/* Section 4: Supplier & Procurement Reference */}
+        {/* Section 2: Supplier & Procurement Reference */}
         <div className="lg:col-span-2 bg-white p-7 rounded-3xl border border-slate-200 shadow-sm flex flex-col">
-          <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-3 mb-6">4. Supplier & Procurement Reference</h3>
+          <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-3 mb-6">2. Supplier & Procurement Reference</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 flex-1">
             {[
               { label: 'Supplier Code', val: report.procurement.supplierCode },
@@ -113,10 +113,10 @@ export const GenealogyView = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Section 2: Sub-Assembly Traceability */}
+        {/* Section 3: Sub-Assembly Traceability */}
         <div className="bg-white rounded-[2rem] border border-slate-200 shadow-sm overflow-hidden">
           <div className="p-6 bg-slate-50/50 border-b border-slate-100">
-            <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest">2. Sub-Assembly Traceability</h3>
+            <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest">3. Sub-Assembly Traceability</h3>
           </div>
           <table className="w-full text-left">
             <thead>
@@ -138,10 +138,10 @@ export const GenealogyView = () => {
           </table>
         </div>
 
-        {/* Section 3: Raw Material Traceability */}
+        {/* Section 4: Raw Material Traceability */}
         <div className="bg-white rounded-[2rem] border border-slate-200 shadow-sm overflow-hidden">
           <div className="p-6 bg-slate-50/50 border-b border-slate-100">
-            <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest">3. Raw Material Traceability</h3>
+            <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest">4. Raw Material Traceability</h3>
           </div>
           <table className="w-full text-left">
             <thead>
