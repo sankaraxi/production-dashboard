@@ -7,15 +7,21 @@ import { RejectionPieChart, QualityMetricsGrid } from './components/QualityVisua
 import { RatioAnalysis } from './components/RatioAnalysis';
 import { AssemblyLinesView } from './components/AssemblyLinesView';
 import { DataLogsView } from './components/DataLogsView';
+import { LoginPage } from './components/LoginPage';
 import { mockDashboardData } from './mockData';
 import { LayoutDashboard, Factory, Database, ChevronDown, Circle } from 'lucide-react';
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedLine, setSelectedLine] = useState('Line-1');
   const [activeTab, setActiveTab] = useState('Dashboard');
   const [searchQuery, setSearchQuery] = useState('');
 
   const currentData = useMemo(() => mockDashboardData[selectedLine], [selectedLine]);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -50,8 +56,6 @@ const App = () => {
                 </div>
                 
                 <HourlyOutputChart data={currentData.production.hourlyData} />
-                
-                {/* OEE Breakdown now positioned here for better visibility and more space */}
                 <OEEBreakdownChart oee={currentData.production.oee} />
               </div>
 
@@ -72,8 +76,12 @@ const App = () => {
     }
   };
 
+  if (!isAuthenticated) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] animate-in fade-in duration-1000">
       <PremiumHeader onSearch={setSearchQuery} />
 
       <div className="flex flex-1 overflow-hidden">
@@ -112,6 +120,12 @@ const App = () => {
               <h4 className="text-sm font-bold mb-3">Line Status: Stable</h4>
               <p className="text-[10px] text-slate-400">All OT metrics syncing in real-time to factory hub.</p>
             </div>
+            <button 
+              onClick={() => setIsAuthenticated(false)}
+              className="mt-6 w-full text-center text-[10px] font-bold text-slate-400 hover:text-rose-500 uppercase tracking-widest transition-colors"
+            >
+              Terminate Session
+            </button>
           </div>
         </aside>
 
