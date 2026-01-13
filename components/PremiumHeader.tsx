@@ -18,8 +18,7 @@ export const PremiumHeader = ({ onSearch, onToggleMenu, isMenuOpen }) => {
         </button>
 
         <div className="shrink-0">
-          <h1 className="text-lg md:text-xl font-bold text-slate-900 tracking-tight">Genealogy</h1>
-          <p className="text-[8px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Electra EV</p>
+          <h1 className="text-lg md:text-xl font-bold text-slate-900 tracking-tight">Electra EV</h1>
         </div>
 
         <div className="relative group hidden sm:block">
@@ -47,7 +46,7 @@ export const PremiumHeader = ({ onSearch, onToggleMenu, isMenuOpen }) => {
             <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider">Active</p>
           </div>
           <div className="h-8 w-8 md:h-10 md:w-10 bg-blue-600 text-white flex items-center justify-center rounded-lg font-bold text-xs md:text-sm shadow-lg shadow-blue-100">
-            BB
+            EV
           </div>
         </div>
       </div>
