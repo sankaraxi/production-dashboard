@@ -19,7 +19,7 @@ export const PremiumHeader = ({ onSearch, onToggleMenu, isMenuOpen }) => {
 
         <div className="shrink-0">
           <h1 className="text-lg md:text-xl font-bold text-slate-900 tracking-tight">Genealogy</h1>
-          <p className="text-[8px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Bharat Battery Hub</p>
+          <p className="text-[8px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Electra EV</p>
         </div>
 
         <div className="relative group hidden sm:block">
@@ -43,7 +43,7 @@ export const PremiumHeader = ({ onSearch, onToggleMenu, isMenuOpen }) => {
 
         <div className="flex items-center gap-3 border-l border-slate-200 pl-4 md:pl-6">
           <div className="text-right hidden md:block">
-            <p className="text-sm font-semibold text-slate-900">Bharat Solutions</p>
+            <p className="text-sm font-semibold text-slate-900">Electra EV</p>
             <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider">Active</p>
           </div>
           <div className="h-8 w-8 md:h-10 md:w-10 bg-blue-600 text-white flex items-center justify-center rounded-lg font-bold text-xs md:text-sm shadow-lg shadow-blue-100">

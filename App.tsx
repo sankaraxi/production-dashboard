@@ -7,9 +7,10 @@ import { RejectionPieChart, QualityMetricsGrid } from './components/QualityVisua
 import { RatioAnalysis } from './components/RatioAnalysis';
 import { AssemblyLinesView } from './components/AssemblyLinesView';
 import { DataLogsView } from './components/DataLogsView';
+import { GenealogyView } from './components/GenealogyView';
 import { LoginPage } from './components/LoginPage';
 import { mockDashboardData } from './mockData';
-import { LayoutDashboard, Factory, Database, ChevronDown, Circle, X, LogOut } from 'lucide-react';
+import { LayoutDashboard, Factory, Database, ChevronDown, Circle, X, LogOut, ClipboardList } from 'lucide-react';
 
 const SidebarContent = ({ activeTab, setActiveTab, onLogout, closeMenu }) => (
   <>
@@ -19,6 +20,7 @@ const SidebarContent = ({ activeTab, setActiveTab, onLogout, closeMenu }) => (
         {[
           { id: 'Dashboard', label: 'Live Dashboard', icon: LayoutDashboard },
           { id: 'Lines', label: 'Assembly Lines', icon: Factory },
+          { id: 'Genealogy', label: 'Genealogy Report', icon: ClipboardList },
           { id: 'Logs', label: 'Data Logs', icon: Database },
         ].map((item) => (
           <button
@@ -38,7 +40,7 @@ const SidebarContent = ({ activeTab, setActiveTab, onLogout, closeMenu }) => (
           </button>
         ))}
         
-        <div className="pt-4 mt-4 border-t border-slate-50">
+        <div className="pt-4 mt-4 border-t border-slate-50 space-y-4">
           <button
             onClick={onLogout}
             className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold text-rose-500 hover:bg-rose-50 transition-all"
@@ -46,20 +48,22 @@ const SidebarContent = ({ activeTab, setActiveTab, onLogout, closeMenu }) => (
             <LogOut className="h-4 w-4" />
             Log Out
           </button>
+
+          {/* Moved Cloud Sync card below Log Out */}
+          <div className="bg-slate-900 rounded-2xl p-4 text-white relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full -mr-8 -mt-8" />
+            <div className="flex items-center gap-2 mb-1">
+              <Circle className="h-2 w-2 fill-emerald-400 text-emerald-400 animate-pulse" />
+              <p className="text-[10px] font-bold text-blue-400 uppercase">Cloud Sync Active</p>
+            </div>
+            <h4 className="text-sm font-bold mb-3">Line Status: Stable</h4>
+            <p className="text-[10px] text-slate-400">All OT metrics syncing in real-time to factory hub.</p>
+          </div>
         </div>
       </nav>
     </div>
 
     <div className="pt-8 border-t border-slate-100 mt-auto">
-      <div className="bg-slate-900 rounded-2xl p-4 text-white relative overflow-hidden group">
-        <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full -mr-8 -mt-8" />
-        <div className="flex items-center gap-2 mb-1">
-          <Circle className="h-2 w-2 fill-emerald-400 text-emerald-400 animate-pulse" />
-          <p className="text-[10px] font-bold text-blue-400 uppercase">Cloud Sync Active</p>
-        </div>
-        <h4 className="text-sm font-bold mb-3">Line Status: Stable</h4>
-        <p className="text-[10px] text-slate-400">All OT metrics syncing in real-time to factory hub.</p>
-      </div>
       <p className="mt-6 text-center text-[9px] font-bold text-slate-300 uppercase tracking-widest">
         Version 2.4.0-Stable
       </p>
@@ -131,6 +135,8 @@ const App = () => {
         return <AssemblyLinesView />;
       case 'Logs':
         return <DataLogsView logs={currentData.logs} />;
+      case 'Genealogy':
+        return <GenealogyView />;
       default:
         return null;
     }
@@ -180,17 +186,19 @@ const App = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 bg-blue-100 text-blue-600 text-[9px] md:text-[10px] font-bold rounded uppercase">Bharat Hub</span>
+                <span className="px-2 py-0.5 bg-blue-100 text-blue-600 text-[9px] md:text-[10px] font-bold rounded uppercase">Electra EV</span>
                 <span className="text-slate-300">/</span>
                 <span className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-wider">{activeTab}</span>
               </div>
               <h2 className="text-xl md:text-2xl font-bold text-slate-900">
-                {activeTab === 'Dashboard' ? 'Production Intelligence' : activeTab === 'Lines' ? 'Line Oversights' : 'Unit Genealogy'}
+                {activeTab === 'Dashboard' ? 'Production Intelligence' : 
+                 activeTab === 'Lines' ? 'Line Oversights' : 
+                 activeTab === 'Genealogy' ? 'Unit Genealogy Report' : 'Production Data Logs'}
               </h2>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              {activeTab !== 'Lines' && (
+              {activeTab !== 'Lines' && activeTab !== 'Genealogy' && (
                 <div className="relative">
                   <select
                     value={selectedLine}

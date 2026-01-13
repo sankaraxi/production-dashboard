@@ -96,11 +96,11 @@ export const LoginPage = ({ onLogin }) => {
         </form>
 
         {/* Footer Branding */}
-        <div className="mt-10 md:mt-12 text-center">
-          <p className="text-[7px] md:text-[8px] font-bold text-slate-300 uppercase tracking-[0.15em] leading-relaxed">
-            Secured by Bharat Battery <br className="md:hidden" /> Global IT Infrastructure
-          </p>
-        </div>
+        // <div className="mt-10 md:mt-12 text-center">
+        //   <p className="text-[7px] md:text-[8px] font-bold text-slate-300 uppercase tracking-[0.15em] leading-relaxed">
+        //     Secured by Electra EV <br className="md:hidden" /> Global IT Infrastructure
+        //   </p>
+        // </div>
       </div>
     </div>
   );
