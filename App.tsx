@@ -8,7 +8,7 @@ import { RatioAnalysis } from './components/RatioAnalysis';
 import { AssemblyLinesView } from './components/AssemblyLinesView';
 import { DataLogsView } from './components/DataLogsView';
 import { mockDashboardData } from './mockData';
-import { LayoutDashboard, Factory, Settings, Database, AlertCircle, ChevronDown, Circle } from 'lucide-react';
+import { LayoutDashboard, Factory, Database, ChevronDown, Circle } from 'lucide-react';
 
 const App = () => {
   const [selectedLine, setSelectedLine] = useState('Line-1');
@@ -85,8 +85,6 @@ const App = () => {
                 { id: 'Dashboard', label: 'Live Dashboard', icon: LayoutDashboard },
                 { id: 'Lines', label: 'Assembly Lines', icon: Factory },
                 { id: 'Logs', label: 'Data Logs', icon: Database },
-                { id: 'Issues', label: 'Alert Center', icon: AlertCircle },
-                { id: 'Settings', label: 'Settings', icon: Settings },
               ].map((item) => (
                 <button
                   key={item.id}
